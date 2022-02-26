@@ -17,6 +17,7 @@ def pollution_report():
 
 @app.route("/get-report", methods=["GET"])
 def get_report():
+    #the request is like "/get-report?longitude={insert val here}&latitude={insert val here}"
     pass
 
 if __name__ == "__main__":

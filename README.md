@@ -1,3 +1,3 @@
 # HackNYU
  
-This is my working repo for HACKNYU 2022
+This is the UML goonsquad working repo for HACKNYU 2022

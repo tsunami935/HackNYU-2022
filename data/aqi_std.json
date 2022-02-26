@@ -1,0 +1,8 @@
+{
+    "Good":50,
+    "Moderate":100,
+    "Unhealthy for Sensitive Groups": 150,
+    "Unhealthy": 200,
+    "Very Unhealthy": 300,
+    "Hazardous": 500
+}

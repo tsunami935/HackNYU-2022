@@ -1,0 +1,17 @@
+Flow:
+1) Get data from user
+1a) App asks user for location data
+1b) App gets longitude/latitude from location data
+
+2) Get data from EPA
+2a) App constructs query to EPA AQS API using a longitudal/latitudal search range
+2b) App sends query to AQS API
+
+3) Data analysis
+3a) App compares data received to EPA standards
+3b) App links relevant information and suggestions
+
+4) Share analysis with user
+
+5) Enable the user to set and track goals
+

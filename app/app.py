@@ -1,3 +1,5 @@
+#This is the code for the app
+
 from flask import *
 
 app = Flask(__name__)

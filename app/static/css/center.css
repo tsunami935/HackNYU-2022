@@ -1,4 +1,4 @@
-.center-div{
+.center-all{
     text-align: center;
     margin: 0;
     position: absolute;
@@ -7,7 +7,7 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-.center-button-horizontal{
+.center-horizontal{
     margin: 0;
     position: absolute;
     left: 50%;

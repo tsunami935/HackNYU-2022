@@ -32,17 +32,17 @@ class EPA:
     def search(self, longitude, latitude):
         #precondition: longitude and latitude are valid coordinates in the United States
         #postcondition: Returns a summary list of pollutants with the AQI recorded on that day
-        #create a search with an approximately 18 mile radius
         params = {
-                "email" : getenv("EPA_EMAIL"),
-                "key" : getenv("EPA_KEY"),
-                "param" : None,
-                "bdate" : (datetime.now() - timedelta(1)).strftime('%Y%m%d'),
-                "edate" : (datetime.now() - timedelta(1)).strftime('%Y%m%d'), 
-                "minlat" : latitude - 0.26,
-                "maxlat" : latitude + 0.26,
-                "minlon" : longitude - 0.3,
-                "maxlon" : longitude + 0.3
+            #create a search with an approximately 18 mile radius
+            "email" : getenv("EPA_EMAIL"),
+            "key" : getenv("EPA_KEY"),
+            "param" : None,
+            "bdate" : (datetime.now() - timedelta(1)).strftime('%Y%m%d'),
+            "edate" : (datetime.now() - timedelta(1)).strftime('%Y%m%d'), 
+            "minlat" : latitude - 0.26,
+            "maxlat" : latitude + 0.26,
+            "minlon" : longitude - 0.3,
+            "maxlon" : longitude + 0.3
         }
         results = []
         for code in self.param_classes:

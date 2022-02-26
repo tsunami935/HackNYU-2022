@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Welcome!</title>
+    <style>
+        .center{
+            text-align: center;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .c-button{
+            margin: 0;
+            position: absolute;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+	<div class="center">
+        <h1>Welcome to the funking app</h1>
+        <p>This is a webapp to educate and enable you to take action against air pollution in your area!</p>
+        <p>By continuing, you agree to let us use your location.</p>
+        <br>
+        <button class="c-button" id="enter_button">I agree</button>
+    </div>
+</body>
+<script src="{{url_for('static', filename='welcome.js')}}"></script>
+</html>

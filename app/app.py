@@ -13,7 +13,11 @@ def welcome():
 
 @app.route("/pollution-report")
 def pollution_report():
-    return send_from_directory("templates", "success.html")
+    return send_from_directory("templates", "pollution-report.html")
+
+@app.route("/get-report", methods=["GET"])
+def get_report():
+    pass
 
 if __name__ == "__main__":
     app.run(debug=True)

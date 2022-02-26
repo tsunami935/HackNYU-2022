@@ -1,8 +1,6 @@
 {
-    "CO": 9,
-    "NO2": 53,
-    "O3": 0.07,
-    "SO2": 140,
-    "PM2.5": 35,
-    "PM10": 150
+    "Carbon monoxide": 9,
+    "Nitrogen dioxide (NO2)": 53,
+    "Ozone": 0.07,
+    "Sulfur dioxide": 140
 }

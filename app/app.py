@@ -19,6 +19,8 @@ def pollution_report():
 
 @app.route("/get-report", methods=["GET"])
 def get_report():
+    #precondition: get request contains a valid longitude and latitude
+    #postcondition: returns a response containing a list of pollutants and their aqi values
     #the request is like "/get-report?longitude={insert val here}&latitude={insert val here}"
     search = epa_api.search(float(request.args.get("longitude")), float(request.args.get("latitude")))
     return make_response({"Data":search}, 200)

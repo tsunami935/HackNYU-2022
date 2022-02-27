@@ -9,8 +9,8 @@ from datetime import datetime, timedelta
 class EPA:
     def __init__(self):
         load_dotenv()
-        api_string = "https://aqs.epa.gov/data/api"
-        param_classes = [
+        self.api_string = "https://aqs.epa.gov/data/api"
+        self.param_classes = [
             {
                 "code": "42101",
                 "value_represented": "Carbon monoxide"
@@ -37,8 +37,9 @@ class EPA:
             "email" : getenv("EPA_EMAIL"),
             "key" : getenv("EPA_KEY"),
             "param" : None,
-            "bdate" : (datetime.now() - timedelta(1)).strftime('%Y%m%d'),
-            "edate" : (datetime.now() - timedelta(1)).strftime('%Y%m%d'), 
+            #unfortunately, the AQS api seems to be a couple months behind
+            "bdate" : (datetime.now() - timedelta(120)).strftime('%Y%m%d'),
+            "edate" : (datetime.now() - timedelta(120)).strftime('%Y%m%d'), 
             "minlat" : latitude - 0.26,
             "maxlat" : latitude + 0.26,
             "minlon" : longitude - 0.3,
@@ -46,7 +47,7 @@ class EPA:
         }
         results = []
         for code in self.param_classes:
-            params["para"] = code["code"]
+            params["param"] = code["code"]
             response = requests.get(self.api_string + "/dailyData/byBox", params=params)
             if response.status_code == 200:
                 data = json.loads(response.content)["Data"]

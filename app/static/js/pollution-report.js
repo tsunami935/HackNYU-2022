@@ -18,6 +18,9 @@ function sendPosition(position){
                 document.getElementById("report-placeholder").remove();
                 var table = document.createElement("table");
                 table.style.border = '1px solid black';
+                const header = table.insertRow();
+                header.insertCell().appendChild(document.createTextNode("Pollutant"));
+                header.insertCell().appendChild(document.createTextNode("Rating"));
                 for(let i = 0; i < data.length; i++){
                     const row = table.insertRow();
                     const pollutant = row.insertCell();

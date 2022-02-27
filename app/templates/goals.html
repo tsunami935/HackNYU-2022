@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+    <title>My goals</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/center.css')}}"></style>
+    <script src="{{url_for('static', filename='js/table-data.js')}}"></script>
+    <script src="{{url_for('static', filename='js/goals.js')}}"></script>
+</head>
+<body>
+    <div class="grid" id="container">
+        <h1>My goals</h1>
+        <form id="goal-form">
+            <div class="dropdown-menu">
+                <button class="dropdown_button" onclick="show_list()" type="button">
+                    Select goal
+                </button>
+                <div id="goals"></div>
+            </div>
+        </form>
+        <table class="table" id="tracking-table"></table>
+    </div>
+</body>

@@ -13,8 +13,16 @@ def welcome():
     #   If yes, send a request to EPA AQS API with relevant information
     return render_template("welcome.html")
 
+@app.route("/goals")
+def goals():
+    #precondition: The user already has a pollution report
+    #postcondition: Sends user a page where they can set and track their goals
+    return render_template("goals.html") #todo: work on goals.html
+
 @app.route("/pollution-report")
 def pollution_report():
+    #precondition: user has consented to letting their location data be used
+    #postcondition: user receives a report of the pollutants being tracked in their area
     return render_template("pollution-report.html")
 
 @app.route("/get-report", methods=["GET"])

@@ -15,15 +15,16 @@ function sendPosition(position){
                     return;
                 }
                 create_report_table(data);
+                store_data(data);
+                create_next_button();
             }
         )
 }
 
 function create_report_table(data){
     //create and populate table
-    document.getElementById("report-placeholder").remove();
     var table = document.createElement("table");
-    table.style.border = '1px solid black';
+    table.classList.add("table");
     const header = table.insertRow();
     header.insertCell().appendChild(document.createTextNode("Pollutant"));
     header.insertCell().appendChild(document.createTextNode("Rating"));
@@ -36,7 +37,32 @@ function create_report_table(data){
         aqi.style.border = '1px solid black';
         aqi.appendChild(document.createTextNode(aqi_rating(data[i].aqi)));
     }
+    document.getElementById("report-placeholder").remove();
     document.getElementById("container").appendChild(table);
+}
+
+function store_data(data){
+    const local_user_air_quality_data = {
+        "raw_data" : [{"data" : data, "date" : new Date()}],
+        "goals" : []
+    };
+    if(localStorage.getItem("local_user_air_quality_data")){
+        my_data = JSON.parse(localStorage.getItem("local_user_air_quality_data"));
+        my_data.raw_data.push(local_user_air_quality_data.raw_data[0]);
+        localStorage.setItem("local_user_air_quality_data", JSON.stringify(my_data));
+    }
+    else{
+        localStorage.setItem("local_user_air_quality_data", JSON.stringify(local_user_air_quality_data));
+    }
+}
+
+function create_next_button(){
+    const button =  document.createElement("button");
+    button.onclick = function () {
+        location.href = "/goals";
+    };
+    button.innerHTML = "Set my goals";
+    document.getElementById("container").appendChild(button);
 }
 
 function aqi_rating(aqi){

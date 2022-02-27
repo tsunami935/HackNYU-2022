@@ -1,8 +1,10 @@
 #This is the code for the app
 
 from flask import *
+from epa import EPA
 
 app = Flask(__name__)
+epa_api = EPA()
 
 @app.route("/")
 def welcome():
@@ -13,12 +15,13 @@ def welcome():
 
 @app.route("/pollution-report")
 def pollution_report():
-    return send_from_directory("templates", "pollution-report.html")
+    return render_template("pollution-report.html")
 
 @app.route("/get-report", methods=["GET"])
 def get_report():
     #the request is like "/get-report?longitude={insert val here}&latitude={insert val here}"
-    pass
+    search = epa_api.search(float(request.args.get("longitude")), float(request.args.get("latitude")))
+    return make_response({"Data":search}, 200)
 
 if __name__ == "__main__":
     app.run(debug=True)
